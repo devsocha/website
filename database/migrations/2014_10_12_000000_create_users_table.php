@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('token')->nullable();
             $table->integer('status');
             $table->integer('rola');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('password');
             $table->timestamps();
         });
