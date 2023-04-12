@@ -44,5 +44,9 @@ class PostController extends Controller
             'userId'=>$this->userId,
         ]);
     }
+    public function delete(int $id): void
+    {
+        Post::where('id',$id)->delete();
+    }
 
 }
