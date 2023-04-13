@@ -26,10 +26,10 @@
         <div class="row mt-4">
             <div class="col-3"></div>
             <div class="col-3">
-                <input type="password" name="password"  class="form-control" placeholder="Hasło" aria-label="Password">
+                <input type="password" name="password"  class="form-control" placeholder="Hasło" >
             </div>
             <div class="col-3">
-                <input type="password"  name="rePassword" class="form-control" placeholder="Wprowadź ponownie hasło" aria-label="rePassword">
+                <input type="password"  name="rePassword" class="form-control" placeholder="Wprowadź ponownie hasło">
             </div>
             <div class="col-3"></div>
         </div>

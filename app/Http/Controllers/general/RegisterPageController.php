@@ -16,7 +16,16 @@ class RegisterPageController extends Controller
 
     public function registerUser(Request $request)
     {
+        // validation form
+        $request->validate([
+            'name'=>'required',
+            'secondName'=>'required',
+            'email'=>'email | required',
+            'password'=>'required',
+            'rePassword'=>'required | same:password',
+        ]);
         try{
+
             // generate token for registration
             $token = GeneratorController::generateToken($request->email);
             // create object to register
