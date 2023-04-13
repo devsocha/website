@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class,'view'])->name('homePage');
+Route::get('/rejestracja-konta',[\App\Http\Controllers\general\RegisterPageController::class,'view'])->name('rejestracja');

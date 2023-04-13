@@ -11,7 +11,7 @@ class RegisterPageController extends Controller
 {
     public function view()
     {
-        return view('general.register');
+        return view('general.registerForm');
     }
 
     public function registerUser(Request $request)
