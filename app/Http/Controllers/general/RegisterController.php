@@ -16,7 +16,8 @@ class RegisterController extends Controller
         $this->user = $user;
     }
 
-    public function register(){
+    public function register(): void
+    {
         User::create([
             'name'=>$this->user->name,
             'secondName'=>$this->user->secondName,

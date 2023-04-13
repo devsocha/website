@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\general;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -21,6 +23,14 @@ class UserController extends Controller
         $this->token = $token;
         $this->email = $email;
         $this->password = Hash::make($password);
+    }
 
+    public static function login(array $credential): bool
+    {
+        return Auth::attempt($credential);
+    }
+    public static function checkAdminAccountCreated():bool
+    {
+        return User::where('rola',2)->exists();
     }
 }
