@@ -3,21 +3,28 @@
 namespace App\Http\Controllers\general;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
-    private string $token;
-    private string $login;
-    private string $password;
+
     private UserController $user;
 
-    private function __construct(string $login, string $token, string $password, UserController $user){
-        $this->token = $token;
-        $this->login = $login;
-        $this->password = $password;
+    public function __construct(UserController $user){
+
         $this->user = $user;
     }
 
-    public function
+    public function register(){
+        User::create([
+            'name'=>$this->user->name,
+            'secondName'=>$this->user->secondName,
+            'email'=>$this->user->email,
+            'token'=>$this->user->token,
+            'status'=>0,
+            'rola'=>0,
+            'password'=>$this->user->password,
+        ]);
+    }
 }
