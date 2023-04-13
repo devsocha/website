@@ -4,6 +4,7 @@ namespace App\Http\Controllers\general;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
         $this->secondName = $secondName;
         $this->token = $token;
         $this->email = $email;
-        $this->password = $password;
+        $this->password = Hash::make($password);
 
     }
 }

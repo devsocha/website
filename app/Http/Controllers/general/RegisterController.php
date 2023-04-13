@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
 
-    private UserController $user;
+    public UserController $user;
 
     public function __construct(UserController $user){
 
