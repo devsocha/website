@@ -32,11 +32,11 @@ class CommentController extends Controller
     {
         return Comment::where('post_id',$this->postId)->get();
     }
-    public static function delete($id):void
+    public static function delete(int $id): void
     {
         Comment::where('id',$id)->delete();
     }
-    public static function deleteFromPost($postId):void
+    public static function deleteFromPost(int $postId): void
     {
         Comment::where('post_id',$postId)->delete();
     }
