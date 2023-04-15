@@ -7,7 +7,23 @@ use Illuminate\Http\Request;
 
 class LoginPageController extends Controller
 {
-    public function view(){
+    public function view()
+    {
         return view('general.login');
+    }
+
+    public function login(Request $request)
+    {
+        $credential = [
+            'email'=> $request->email,
+            'password'=>$request->password,
+        ];
+        if(UserController::login($credential))
+        {
+            echo 'zalogowany';
+        }else
+        {
+            echo'błąd';
+        }
     }
 }

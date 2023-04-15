@@ -18,3 +18,5 @@ Route::get('/', [HomeController::class,'view'])->name('homePage');
 Route::get('/rejestracja-konta',[\App\Http\Controllers\general\RegisterPageController::class,'view'])->name('rejestracja');
 Route::post('/rejestracja-konta/wysłanie',[\App\Http\Controllers\general\RegisterPageController::class,'registerUser'])->name('rejestracjaUsera');
 Route::get('/logowanie',[\App\Http\Controllers\general\LoginPageController::class, 'view'])->name('login');
+Route::post('/logowanie/wysłanie',[\App\Http\Controllers\general\LoginPageController::class, 'login'])->name('login.confirm');
+Route::get('/logout',[HomeController::class,'logoutButton'])->name('logout');

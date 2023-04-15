@@ -29,13 +29,24 @@ class UserController extends Controller
     {
         return Auth::attempt($credential);
     }
-    public static function checkAdminAccountCreated():bool
+
+    public static function checkAdminAccountCreated(): bool
     {
-        return User::where('rola',2)->exists();
+        return User::where('rola', 2)->exists();
     }
 
     public static function getUser(int $id): array
     {
-        return User::where('id',$id)->first();
+        return User::where('id', $id)->first();
+    }
+
+    public static function logout(): void
+    {
+        Auth::logout();
+    }
+
+    public static function getUserByToken(string $token): array
+    {
+        return User::where('token',$token)->first();
     }
 }

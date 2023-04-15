@@ -16,4 +16,9 @@ class HomeController extends Controller
     {
         return view('general.home');
     }
+    public function logoutButton()
+    {
+        UserController::logout();
+        return redirect()->back();
+    }
 }

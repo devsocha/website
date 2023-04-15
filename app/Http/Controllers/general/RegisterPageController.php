@@ -32,9 +32,9 @@ class RegisterPageController extends Controller
             // add user to db
             $registerUser->register();
             // send verification mail
-//            $email = $registerUser->user->email;
-//            EmailController::sendVerificationEmail($email,$token);
-//            // return last view with success message
+            $email = $registerUser->user->email;
+            EmailController::sendVerificationEmail($email,$token);
+            // return last view with success message
             $message = 'Poprawnie założono konto, sprawdź maila. Wysłaliśmy wiadomość z weryfikacją konta';
             return redirect()->back()->with(['success'=>$message]);
         }catch (\Exception $e){

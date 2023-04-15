@@ -35,6 +35,13 @@
             @if(!\Illuminate\Support\Facades\Auth::user())
                 <a href="{{route('login')}}" class="d-flex btn btn-secondary" role="search"> Zaloguj</a>
                 <a href="{{route('rejestracja')}}"class="d-flex btn btn-primary" style="margin-left:1%" role="search"> Rejestracja</a>
+            @else
+                @if(\Illuminate\Support\Facades\Auth::guard('web')->user()->rola == 0 )
+                    <a href="#" class="d-flex btn btn-secondary" role="search"> Panel użytkownika</a>
+                @elseif(\Illuminate\Support\Facades\Auth::guard('web')->user()->rola == 1)
+                    <a href="#" class="d-flex btn btn-secondary" role="search"> Panel admina</a>
+                @endif
+                    <a href="{{route('logout')}}" class="d-flex btn btn-primary" style="margin-left: 1%" role="search"> Wyloguj</a>
             @endif
         </div>
     </div>
