@@ -33,4 +33,9 @@ class UserController extends Controller
     {
         return User::where('rola',2)->exists();
     }
+
+    public static function getUser(int $id): array
+    {
+        return User::where('id',$id)->first();
+    }
 }

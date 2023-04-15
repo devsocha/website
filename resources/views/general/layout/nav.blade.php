@@ -33,7 +33,7 @@
                 </li>
             </ul>
             @if(!\Illuminate\Support\Facades\Auth::user())
-                <a class="d-flex btn btn-secondary" role="search"> Zaloguj</a>
+                <a href="{{route('login')}}" class="d-flex btn btn-secondary" role="search"> Zaloguj</a>
                 <a href="{{route('rejestracja')}}"class="d-flex btn btn-primary" style="margin-left:1%" role="search"> Rejestracja</a>
             @endif
         </div>
