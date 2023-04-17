@@ -4,6 +4,7 @@ namespace App\Http\Controllers\general;
 
 use App\Http\Controllers\Controller;
 use App\Mail\WebsiteMail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -39,9 +40,25 @@ class RegisterPageController extends Controller
             return redirect()->back()->with(['success'=>$message]);
         }catch (\Exception $e){
             // return last view with error message
-//            $message = 'Wystąpił błąd, prosimy spróbować później';
-//            return redirect()->back()->with(['error'=>$message]);
-            echo $e;
+            $message = 'Wystąpił błąd, prosimy spróbować później';
+            return redirect()->back()->with(['error'=>$message]);
+//            echo $e;
         }
+    }
+    public function verifyAfterRegistration($token)
+    {
+        try{
+            RegisterController::verifyByToken($token);
+            $message = 'Poprawnie zweryfikowano dane';
+        return redirect()->route('home')->with([
+            'success'=>$message
+        ]);
+        }catch (\Exception $e){
+            $message = 'Wystąpił błąd';
+        return redirect()->route('home')->with([
+            'error'=>$message,
+        ]);
+        }
+
     }
 }

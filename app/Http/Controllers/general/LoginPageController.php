@@ -18,12 +18,15 @@ class LoginPageController extends Controller
             'email'=> $request->email,
             'password'=>$request->password,
         ];
-        if(UserController::login($credential))
-        {
-            echo 'zalogowany';
-        }else
-        {
-            echo'błąd';
+        try {
+            if (UserController::login($credential)) {
+                echo 'zalogowany';
+            } else {
+                echo 'błąd';
+            }
+        }catch (\Exception $e){
+            return redirect()->back();
         }
+
     }
 }

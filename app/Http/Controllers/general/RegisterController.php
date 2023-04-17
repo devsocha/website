@@ -28,4 +28,12 @@ class RegisterController extends Controller
             'password'=>$this->user->password,
         ]);
     }
+
+    public static function verifyByToken($token):void
+    {
+        User::where('token',$token)->update([
+            'token'=>'',
+            'status' => 1,
+        ]);
+    }
 }
