@@ -55,7 +55,7 @@ class RegisterPageController extends Controller
         ]);
         }catch (\Exception $e){
             $message = 'Wystąpił błąd';
-        return redirect()->route('home')->with([
+        return redirect()->route('homePage')->with([
             'error'=>$message,
         ]);
         }

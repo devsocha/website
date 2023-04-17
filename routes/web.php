@@ -20,3 +20,4 @@ Route::post('/rejestracja-konta/wysłanie',[\App\Http\Controllers\general\Regist
 Route::get('/logowanie',[\App\Http\Controllers\general\LoginPageController::class, 'view'])->name('login');
 Route::post('/logowanie/wysłanie',[\App\Http\Controllers\general\LoginPageController::class, 'login'])->name('login.confirm');
 Route::get('/logout',[HomeController::class,'logoutButton'])->name('logout');
+Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\RegisterPageController::class,'verifyAfterRegistration'])->name('verify.email');
