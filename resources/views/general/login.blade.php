@@ -1,5 +1,5 @@
 @extends('general.layout.nav')
-@section('title','Rejestracja')
+@section('title','Logowanie')
 @section('content')
     <form method="post" action="{{route('login.confirm')}}">
         @csrf
