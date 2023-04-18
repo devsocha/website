@@ -23,9 +23,9 @@ Route::get('/logout',[HomeController::class,'logoutButton'])->name('logout');
 Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\RegisterPageController::class,'verifyAfterRegistration'])->name('verify.email');
 
 
-
 /*
  * ADMIN ROUTES
  */
 Route::get('/admin/',[\App\Http\Controllers\admin\AdminController::class,'viewAdminPage'])->name('admin.home');
 Route::get('/admin/post',[\App\Http\Controllers\admin\AdminController::class,'viewPostPage'])->name('admin.posts');
+Route::get('/admin/post/add',[\App\Http\Controllers\admin\AdminController::class,'viewPostAddPage'])->name('admin.posts.add');

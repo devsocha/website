@@ -2,7 +2,7 @@
 @section('title','Panel admina')
 @section('content')
     <div class="row m-5">
-        <a class="btn btn-primary" href="" >Dodaj nowy post</a>
+        <a class="btn btn-primary" href="{{route('admin.posts.add')}}" >Dodaj nowy post</a>
     </div>
 
     <div class="row m-5">

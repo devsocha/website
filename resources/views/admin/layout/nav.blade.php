@@ -53,6 +53,11 @@
                 Wróć na stronę
             </a>
         </div>
+        <div class="row m-3" >
+            <a href="{{route('logout')}}" class="btn btn-danger" >
+                Wyloguj
+            </a>
+        </div>
     </div>
     <div class="col-9">
         @yield('content')

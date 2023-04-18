@@ -13,7 +13,7 @@
             </div>
             <div>
                 <input class="btn btn-primary "type="submit" value="Dodaj">
-                <a hef=""class="btn btn-secondary" >Cofnij</a>
+                <a href="{{route('admin.posts')}}"class="btn btn-secondary" >Cofnij</a>
             </div>
         </form>
     </div>

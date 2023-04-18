@@ -19,6 +19,6 @@ class HomeController extends Controller
     public function logoutButton()
     {
         UserController::logout();
-        return redirect()->back();
+        return redirect()->route('homePage');
     }
 }

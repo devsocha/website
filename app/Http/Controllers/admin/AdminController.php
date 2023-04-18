@@ -20,4 +20,8 @@ class AdminController extends Controller
             'posts'=>$posts,
         ]);
     }
+    public function viewPostAddPage()
+    {
+        return view('admin.postAdd');
+    }
 }
