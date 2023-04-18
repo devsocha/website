@@ -32,9 +32,9 @@ class PostController extends Controller
             'userId'=>$this->userId,
         ]);
     }
-    public function getAll(): array
+    public static function getAll()
     {
-        return Post::get();
+        return Post::paginate(10);
     }
     public function update(int $id):void
     {

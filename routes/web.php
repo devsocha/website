@@ -28,3 +28,4 @@ Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\Regist
  * ADMIN ROUTES
  */
 Route::get('/admin/',[\App\Http\Controllers\admin\AdminController::class,'viewAdminPage'])->name('admin.home');
+Route::get('/admin/post',[\App\Http\Controllers\admin\AdminController::class,'viewPostPage'])->name('admin.posts');
