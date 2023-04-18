@@ -23,7 +23,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Oferta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Blog</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('blogPage')}}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">O mnie</a>

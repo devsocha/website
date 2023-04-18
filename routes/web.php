@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+ * GENERAL ROUTES
+ */
 Route::get('/', [HomeController::class,'view'])->name('homePage');
 Route::get('/rejestracja-konta',[\App\Http\Controllers\general\RegisterPageController::class,'view'])->name('rejestracja');
 Route::post('/rejestracja-konta/wysłanie',[\App\Http\Controllers\general\RegisterPageController::class,'registerUser'])->name('rejestracjaUsera');
@@ -21,7 +24,11 @@ Route::get('/logowanie',[\App\Http\Controllers\general\LoginPageController::clas
 Route::post('/logowanie/wysłanie',[\App\Http\Controllers\general\LoginPageController::class, 'login'])->name('login.confirm');
 Route::get('/logout',[HomeController::class,'logoutButton'])->name('logout');
 Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\RegisterPageController::class,'verifyAfterRegistration'])->name('verify.email');
+Route::get('/blog',[\App\Http\Controllers\general\BlogPageController::class,'view'])->name('blogPage');
 
+/*
+ * USER ROUTES
+ */
 
 /*
  * ADMIN ROUTES

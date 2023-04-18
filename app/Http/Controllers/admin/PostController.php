@@ -32,7 +32,7 @@ class PostController extends Controller
             'user_id'=>$this->userId,
         ]);
     }
-    public static function getAll(): Post
+    public static function getAll()
     {
         return Post::paginate(5);
     }
@@ -48,5 +48,6 @@ class PostController extends Controller
     {
         Post::where('id',$id)->delete();
     }
+
 
 }
