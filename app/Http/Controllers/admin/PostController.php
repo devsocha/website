@@ -29,12 +29,12 @@ class PostController extends Controller
         Post::create([
             'title'=>$this->title,
             'desc'=>$this->desc,
-            'userId'=>$this->userId,
+            'user_id'=>$this->userId,
         ]);
     }
     public static function getAll()
     {
-        return Post::paginate(10);
+        return Post::paginate(5);
     }
     public function update(int $id):void
     {

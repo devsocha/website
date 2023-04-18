@@ -29,3 +29,4 @@ Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\Regist
 Route::get('/admin/',[\App\Http\Controllers\admin\AdminController::class,'viewAdminPage'])->name('admin.home');
 Route::get('/admin/post',[\App\Http\Controllers\admin\AdminController::class,'viewPostPage'])->name('admin.posts');
 Route::get('/admin/post/add',[\App\Http\Controllers\admin\AdminController::class,'viewPostAddPage'])->name('admin.posts.add');
+Route::post('/admin/post/add-submit',[\App\Http\Controllers\admin\AdminController::class,'addPost'])->name('admin.post.add');

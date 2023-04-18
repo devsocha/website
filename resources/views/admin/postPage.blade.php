@@ -15,16 +15,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>
-                    <a class="btn btn-danger" href="">Usuń</a>
-                    <a class="btn btn-secondary" href="">Edytuj</a>
-                </td>
-            </tr>
+                @foreach($posts as $post)
+                    <tr>
+                        <th scope="row">{{$loop->iteration}}</th>
+                        <td>{{$post->title}}</td>
+                        <td>
+                            <a class="btn btn-danger" href="">Usuń</a>
+                            <a class="btn btn-secondary" href="">Edytuj</a>
+                        </td>
+                    </tr>
+                @endforeach
 
             </tbody>
         </table>
+
+    </div>
+    <div class="row m-5" style="width: 100%">
+        {!! $posts->links() !!}
     </div>
 @endsection
