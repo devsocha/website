@@ -21,7 +21,7 @@
                         <td>{{$post->title}}</td>
                         <td>
                             <a class="btn btn-danger" href="{{route('admin.post.delete',['id'=>$post->id])}}">Usuń</a>
-                            <a class="btn btn-secondary" href="">Edytuj</a>
+                            <a class="btn btn-secondary" href="{{route('admin.posts.edit',['id'=>$post->id])}}">Edytuj</a>
                         </td>
                     </tr>
                 @endforeach
@@ -30,7 +30,7 @@
         </table>
 
     </div>
-    <div class="row m-5" style="width: 100%">
+    <div class="row m-5" >
         {!! $posts->links() !!}
     </div>
 @endsection

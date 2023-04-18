@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -18,7 +19,7 @@ class PostController extends Controller
         $this->userId = $userId;
     }
 
-    public function get(int $id): array
+    public static function get(int $id): Post
     {
         return Post::where('id',$id)->first();
     }
@@ -31,7 +32,7 @@ class PostController extends Controller
             'user_id'=>$this->userId,
         ]);
     }
-    public static function getAll()
+    public static function getAll(): Post
     {
         return Post::paginate(5);
     }
@@ -40,7 +41,7 @@ class PostController extends Controller
         Post::where('id',$id)->update([
             'title'=>$this->title,
             'desc'=>$this->desc,
-            'userId'=>$this->userId,
+            'user_id'=>$this->userId,
         ]);
     }
     public static function delete(int $id): void

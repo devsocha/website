@@ -31,3 +31,5 @@ Route::get('/admin/post',[\App\Http\Controllers\admin\AdminController::class,'vi
 Route::get('/admin/post/add',[\App\Http\Controllers\admin\AdminController::class,'viewPostAddPage'])->name('admin.posts.add');
 Route::post('/admin/post/add-submit',[\App\Http\Controllers\admin\AdminController::class,'addPost'])->name('admin.post.add');
 Route::get('/admin/post/delete/{id}',[\App\Http\Controllers\admin\AdminController::class,'deletePost'])->name('admin.post.delete');
+Route::get('/admin/post/edit/{id}',[\App\Http\Controllers\admin\AdminController::class,'editPostView'])->name('admin.posts.edit');
+Route::post('/admin/post/edit-submit',[\App\Http\Controllers\admin\AdminController::class,'editPost'])->name('admin.post.edit');

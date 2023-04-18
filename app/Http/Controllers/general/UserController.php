@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\general;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class UserController extends Controller
         return User::where('rola', 2)->exists();
     }
 
-    public static function getUser(int $id): array
+    public static function getUser(int $id): User
     {
         return User::where('id', $id)->first();
     }
@@ -45,7 +46,7 @@ class UserController extends Controller
         Auth::logout();
     }
 
-    public static function getUserByToken(string $token): array
+    public static function getUserByToken(string $token): User
     {
         return User::where('token',$token)->first();
     }
