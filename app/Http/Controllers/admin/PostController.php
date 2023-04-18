@@ -4,7 +4,6 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -44,7 +43,7 @@ class PostController extends Controller
             'userId'=>$this->userId,
         ]);
     }
-    public function delete(int $id): void
+    public static function delete(int $id): void
     {
         Post::where('id',$id)->delete();
     }

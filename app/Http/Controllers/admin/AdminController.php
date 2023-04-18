@@ -34,4 +34,9 @@ class AdminController extends Controller
         $message = 'Poprawnie dodano post!';
         return redirect()->back()->with(['success'=>$message]);
     }
+    public function deletePost(int $id){
+        PostController::delete($id);
+        $message = 'Poprawnie usunięto post';
+        return redirect()->back()->with(['success'=>$message]);
+    }
 }
