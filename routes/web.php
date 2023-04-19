@@ -30,6 +30,7 @@ Route::get('/blog',[\App\Http\Controllers\general\BlogPageController::class,'vie
  * USER ROUTES
  */
 
+Route::get('/user/',[\App\Http\Controllers\user\UserPageController::class,'homeView'])->name('user.home');
 /*
  * ADMIN ROUTES
  */

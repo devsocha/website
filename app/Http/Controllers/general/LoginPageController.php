@@ -20,9 +20,11 @@ class LoginPageController extends Controller
         ];
         try {
             if (UserController::login($credential)) {
-                echo 'zalogowany';
+                $message = 'Poprawnie zalogowano';
+                return redirect()->route('homePage')->with(['success'=>$message]);
             } else {
-                echo 'błąd';
+                $message = 'Wystąpił błąd';
+                return redirect()->back()->with(['error'=>$message]);
             }
         }catch (\Exception $e){
             return redirect()->back();
