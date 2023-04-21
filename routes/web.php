@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
  * LOGON & REGISTER ROUTES
  */
 
-Route::middleware(['Logged'])->group(function (){
+Route::middleware(['logged'])->group(function (){
     Route::get('/rejestracja-konta',[\App\Http\Controllers\general\RegisterPageController::class,'view'])->name('rejestracja');
     Route::post('/rejestracja-konta/wysłanie',[\App\Http\Controllers\general\RegisterPageController::class,'registerUser'])->name('rejestracjaUsera');
     Route::get('/logowanie',[\App\Http\Controllers\general\LoginPageController::class, 'view'])->name('login');
@@ -38,7 +38,6 @@ Route::get('/registration/confirm/{token}',[\App\Http\Controllers\general\Regist
  */
 Route::get('/', [HomeController::class,'view'])->name('homePage');
 Route::get('/blog',[\App\Http\Controllers\general\BlogPageController::class,'view'])->name('blogPage');
-
 /*
  * USER ROUTES
  */

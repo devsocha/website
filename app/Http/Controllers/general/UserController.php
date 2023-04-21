@@ -41,6 +41,15 @@ class UserController extends Controller
         return User::where('id', $id)->first();
     }
 
+    public function updateByUser($id): void
+    {
+        User::where('id',$id)->update([
+            'name'=>$this->name,
+            'secondName'=>$this->secondName,
+            'email'=>$this->email,
+            'password'=>$this->password,
+        ]);
+    }
     public static function logout(): void
     {
         Auth::logout();
