@@ -16,10 +16,24 @@ class SettingsController extends Controller
         return view('user.settings');
     }
     public function updateUser(Request $request){
+        $request->validate([
+            'email'=>'required | email',
+            'name'=>'required',
+            'secondName'=>'required',
+            'password'=>'required',
+            'rePassword'=>'required | same:password',
+        ]);
         $id = Auth::id();
         $user = new UserController($request->email,'',$request->password, $request->name,$request->secondName);
         $user->updateByUser($id);
         $message = 'Poprawnie zaktualizowano dane';
         return redirect()->back()->with(['success'=>$message]);
+    }
+
+    public function deleteAccount(){
+        $id = Auth::id();
+        UserController::delete($id);
+        UserController::logout();
+        return redirect()->route('homePage');
     }
 }

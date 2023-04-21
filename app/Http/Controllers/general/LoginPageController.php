@@ -17,6 +17,7 @@ class LoginPageController extends Controller
         $credential = [
             'email'=> $request->email,
             'password'=>$request->password,
+            'status'=>1,
         ];
         try {
             if (UserController::login($credential)) {

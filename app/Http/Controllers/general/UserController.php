@@ -30,6 +30,12 @@ class UserController extends Controller
     {
         return Auth::attempt($credential);
     }
+    public function avatarUpdate(int $id, string $fileName):void
+    {
+        User::where('id',$id)->update([
+            'avatar'=>$fileName,
+        ]);
+    }
 
     public static function checkAdminAccountCreated(): bool
     {
@@ -41,7 +47,11 @@ class UserController extends Controller
         return User::where('id', $id)->first();
     }
 
-    public function updateByUser($id): void
+    public static function delete(int $id):void
+    {
+        User::where('id',$id)->delete();
+    }
+    public function updateByUser(int $id): void
     {
         User::where('id',$id)->update([
             'name'=>$this->name,

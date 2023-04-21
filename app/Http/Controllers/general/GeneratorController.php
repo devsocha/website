@@ -11,4 +11,9 @@ class GeneratorController extends Controller
     {
         return hash('sha256',time().$variable);
     }
+
+    public static function generateFileName(string $variable): string
+    {
+        return hash('sha256',time().$variable);
+    }
 }
