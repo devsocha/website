@@ -21,7 +21,7 @@ class FileController extends Controller
     {
      $this->file->move($path,$name);
     }
-    public function deleteFile(string $path, string $name):void
+    public function deleteFile( string $name, string $path):void
     {
         unlink($path,$name);
     }

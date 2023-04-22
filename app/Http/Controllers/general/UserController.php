@@ -37,6 +37,12 @@ class UserController extends Controller
         ]);
     }
 
+    public static function avatarGetName(int $id): string
+    {
+        $user = User::where('id',$id)->first();
+        return $user->avatar;
+    }
+
     public static function checkAdminAccountCreated(): bool
     {
         return User::where('rola', 2)->exists();

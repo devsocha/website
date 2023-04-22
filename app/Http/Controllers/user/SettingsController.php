@@ -36,8 +36,11 @@ class SettingsController extends Controller
             $fullName = $name.'.'.$ext;
             $path = public_path('images/avatars/');
             $file->saveFile($name,$path);
+            $oldName = UserController::avatarGetName($id);
             UserController::avatarUpdate($id,$fullName);
+            $file->deleteFile($oldName,$path);
         }
+
 
         $user = new UserController($request->email,'',$request->password, $request->name,$request->secondName);
         $user->updateByUser($id);
