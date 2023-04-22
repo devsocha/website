@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\general\FileController;
+use App\Http\Controllers\general\GeneratorController;
 use App\Http\Controllers\general\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -16,6 +18,7 @@ class SettingsController extends Controller
         return view('user.settings');
     }
     public function updateUser(Request $request){
+        $id = Auth::id();
         $request->validate([
             'email'=>'required | email',
             'name'=>'required',
@@ -23,7 +26,19 @@ class SettingsController extends Controller
             'password'=>'required',
             'rePassword'=>'required | same:password',
         ]);
-        $id = Auth::id();
+        if($request->hasFile('avatar')){
+            $request->validate([
+                'avatar'=>'image | mimes:jpeg,jpg,png | max:2048',
+            ]);
+            $file = new FileController($request->file('avatar'));
+            $ext = $file->getFileType();
+            $name = GeneratorController::generateFileName((string)$id);
+            $fullName = $name.'.'.$ext;
+            $path = public_path('images/avatars/');
+            $file->saveFile($name,$path);
+            UserController::avatarUpdate($id,$fullName);
+        }
+
         $user = new UserController($request->email,'',$request->password, $request->name,$request->secondName);
         $user->updateByUser($id);
         $message = 'Poprawnie zaktualizowano dane';

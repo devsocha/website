@@ -30,7 +30,7 @@ class UserController extends Controller
     {
         return Auth::attempt($credential);
     }
-    public function avatarUpdate(int $id, string $fileName):void
+    public static function avatarUpdate(int $id, string $fileName):void
     {
         User::where('id',$id)->update([
             'avatar'=>$fileName,
