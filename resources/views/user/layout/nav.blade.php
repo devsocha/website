@@ -23,7 +23,7 @@
             </a>
         </div>
         <div class="row m-3" >
-            <a class="btn btn-primary" >
+            <a href="{{route('user.settings')}}"class="btn btn-primary" >
                 Ustawienia
             </a>
         </div>

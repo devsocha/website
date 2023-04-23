@@ -43,6 +43,8 @@ Route::get('/blog',[\App\Http\Controllers\general\BlogPageController::class,'vie
  */
 Route::middleware(['auth','user'])->group(function () {
     Route::get('/user/', [\App\Http\Controllers\user\UserPageController::class, 'homeView'])->name('user.home');
+    Route::get('/user/settings',[\App\Http\Controllers\user\SettingsController::class,'view'])->name('user.settings');
+    Route::post('/user/settings-update',[\App\Http\Controllers\user\SettingsController::class,'updateUser'])->name('user.settings.update');
 });
 /*
  * ADMIN ROUTES

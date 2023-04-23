@@ -42,13 +42,12 @@ class UserController extends Controller
         $user = User::where('id',$id)->first();
         return $user->avatar;
     }
-
     public static function checkAdminAccountCreated(): bool
     {
         return User::where('rola', 2)->exists();
     }
 
-    public static function getUser(int $id): User
+    public static function getUser(int $id)
     {
         return User::where('id', $id)->first();
     }
@@ -63,15 +62,21 @@ class UserController extends Controller
             'name'=>$this->name,
             'secondName'=>$this->secondName,
             'email'=>$this->email,
-            'password'=>$this->password,
         ]);
     }
+    public static function updatePassword(int $id,string $password): void
+    {
+        User::where('id',$id)->update([
+            'password'=>Hash::make($password),
+        ]);
+    }
+
     public static function logout(): void
     {
         Auth::logout();
     }
 
-    public static function getUserByToken(string $token): User
+    public static function getUserByToken(string $token)
     {
         return User::where('token',$token)->first();
     }

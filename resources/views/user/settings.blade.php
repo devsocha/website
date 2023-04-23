@@ -1,10 +1,10 @@
 @extends('user.layout.nav')
 @section('title','Panel usera - ustawienia')
 @section('content')
-    <form method="post" action="">
+    <form method="post" action="{{route('user.settings.update')}}">
         @csrf
         <div class="row mt-5 text-center">
-            <h1>REJESTRACJA</h1>
+            <h1>USTAWIENIA KONTA</h1>
         </div>
         <div class="row mt-5">
             <div class="col-3"></div>
@@ -26,10 +26,10 @@
         <div class="row mt-4">
             <div class="col-3"></div>
             <div class="col-3">
-                <input type="password" name="password"  class="form-control" value="{{$user->password}}" placeholder="Hasło" >
+                <input type="password" name="password"  class="form-control" value="" placeholder="Stare hasło" >
             </div>
             <div class="col-3">
-                <input type="password"  name="rePassword" class="form-control" value="{{$user->password}}" placeholder="Wprowadź ponownie hasło">
+                <input type="password"  name="newPassword" class="form-control" value="" placeholder="Wprowadź nowe hasło">
             </div>
             <div class="col-3"></div>
         </div>

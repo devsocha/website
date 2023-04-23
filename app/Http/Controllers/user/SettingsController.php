@@ -9,13 +9,14 @@ use App\Http\Controllers\general\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class SettingsController extends Controller
 {
     public function view(){
         $id = Auth::id();
-        UserController::getUser($id);
-        return view('user.settings');
+        $user = UserController::getUser($id);
+        return view('user.settings')->with(['user'=>$user]);
     }
     public function updateUser(Request $request){
         $id = Auth::id();
@@ -23,9 +24,20 @@ class SettingsController extends Controller
             'email'=>'required | email',
             'name'=>'required',
             'secondName'=>'required',
-            'password'=>'required',
-            'rePassword'=>'required | same:password',
         ]);
+        if($request->password AND $request->newPassword){
+            $request->validate([
+                'password'=>'required',
+                'newPassword'=>'required',
+                ]);
+            $user = UserController::getUser($id);
+            if(Hash::check($request->password,$user->password)){
+                UserController::updatePassword($id,$request->newPassword);
+            }else{
+                $message = 'Podane hasło jest błędne';
+                return redirect()->back()->with(['error'=>$message]);
+            }
+        }
         if($request->hasFile('avatar')){
             $request->validate([
                 'avatar'=>'image | mimes:jpeg,jpg,png | max:2048',
@@ -42,7 +54,7 @@ class SettingsController extends Controller
         }
 
 
-        $user = new UserController($request->email,'',$request->password, $request->name,$request->secondName);
+        $user = new UserController($request->email,'','', $request->name,$request->secondName);
         $user->updateByUser($id);
         $message = 'Poprawnie zaktualizowano dane';
         return redirect()->back()->with(['success'=>$message]);

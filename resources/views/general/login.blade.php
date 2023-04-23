@@ -9,7 +9,7 @@
         <div class="row mt-6">
             <div class="col-3"></div>
             <div class="col-6">
-                <input type="text"  name="email" class="form-control" placeholder="Email" aria-label="Email">
+                <input type="text"  name="email" class="form-control"  placeholder="Email" aria-label="Email">
             </div>
             <div class="col-3"></div>
         </div>
